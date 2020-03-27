@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "ecom-template-001"
+  },
+  "targets": {
+    "ecom-template-001": {
+      "hosting": {
+        "commerce": [
+          "ecom-template-admin-001"
+        ]
+      }
+    }
+  }
+}
