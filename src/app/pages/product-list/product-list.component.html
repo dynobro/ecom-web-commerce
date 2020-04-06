@@ -4,7 +4,7 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">SKU</th>
+          <th scope="col">Código</th>
           <th scope="col">Marca</th>
           <th scope="col">Titulo</th>
           <th scope="col">Precio</th>
@@ -13,15 +13,14 @@
       </thead>
       <tbody>
         <tr *ngFor="let prooduct of productsList">
-          <th scope="row"><a href="#">{{ prooduct.sku }}</a></th>
+          <th scope="row"><a [routerLink]="'/products/' + prooduct.id">{{ prooduct.sku }}</a></th>
           <td>{{ prooduct.brand }}</td>
-          <td>Redmi X9</td>
-          <td>45.99</td>
+          <td>{{ prooduct.name }}</td>
+          <td>{{ prooduct.price }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
 
 

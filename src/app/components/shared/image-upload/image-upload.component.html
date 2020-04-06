@@ -1,0 +1,26 @@
+
+ <image-cropper
+ [imageChangedEvent]="imageChangedEvent"
+ [maintainAspectRatio]="true"
+ [aspectRatio]="4 / 3"
+ format="png"
+ (imageCropped)="imageCropped($event)"
+ (imageLoaded)="imageLoaded()"
+ (cropperReady)="cropperReady()"
+ (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+<div class="col">
+  <img *ngIf="croppedImage" [src]="croppedImage" class="preview-image" alt="image">
+    <h4 class="is-size-1">Subir Imagenes del Producto</h4>
+    <form [formGroup]="archivoForm" (ngSubmit)="subirArchivo()">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile" formControlName="archivo" (change)="fileChangedEvent($event)" accept=".jpg, .png">
+        <label class="custom-file-label" for="customFile">{{ mensajeArchivo }}</label>
+      </div>
+      <hr>
+      <div class="progress my-2">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [attr.aria-valuenow]="porcentaje" aria-valuemin="0" aria-valuemax="100" [style]="{ 'width': porcentaje + '%'}"></div>
+      </div>
+      <button class="btn btn-primary" [disabled]="!archivoForm.valid && (porcentaje > 0 && porcentaje < 100)">{{textUploadButton}}</button>
+    </form>
+</div>

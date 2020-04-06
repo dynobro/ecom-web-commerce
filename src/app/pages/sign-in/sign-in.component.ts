@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,17 +8,13 @@ import { auth } from 'firebase/app';
 })
 export class SignInComponent implements OnInit {
 
-  constructor(public authServicie: AngularFireAuth) { }
+  username = new FormControl('');
+  password = new FormControl('');
 
-  ngOnInit(): void {
-  }
+  constructor() { }
 
-  login() {
+  ngOnInit(): void {}
 
-    //this.authServicie.auth.signInWithEmailAndPassword();
-  }
-  logout() {
-    //this.auth.signOut();
-  }
+  onSubmit(): void {}
 
 }
